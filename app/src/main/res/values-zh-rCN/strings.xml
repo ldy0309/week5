@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">week5</string>
+    <string name="text1">请输入温度</string>
+    <string name="btn1">转换为华氏度</string>
+    <string name="text2">你好</string>
+    <string name="text3">结果为：</string>
+    <string name="txtnum">0</string>
+    <string name="btnadd3">+3分</string>
+    <string name="btnadd2">+2分</string>
+    <string name="btnadd1">+1分</string>
+    <string name="btnre">重置</string>
+    <string name="textRMB">输入人民币</string>
+    <string name="btndollar">美元</string>
+    <string name="btneuro">欧元</string>
+    <string name="btnwon">韩元</string>
+</resources>

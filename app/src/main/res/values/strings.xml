@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">week5</string>
+    <string name="text1">input the temperature</string>
+    <string name="btn1">convert to fahrenheit </string>
+    <string name="text2">Hello</string>
+    <string name="text3">the result is :</string>
+    <string name="title_activity_main2" translatable="false">Main2Activity</string>
+    <string name="textname" translatable="false">TeamA</string>
+    <string name="txtnum">0</string>
+    <string name="btnadd3">+3 POINTS</string>
+    <string name="btnadd2">+2 POINTS</string>
+    <string name="btnadd1">+1 POINTS</string>
+    <string name="btnre">reset</string>
+    <string name="textRMB">Input RMB</string>
+    <string name="btndollar">DOLLAR</string>
+    <string name="btneuro">EURO</string>
+    <string name="btnwon">WON</string>
+</resources>
