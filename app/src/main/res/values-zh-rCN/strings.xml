@@ -14,4 +14,5 @@
     <string name="btndollar">美元</string>
     <string name="btneuro">欧元</string>
     <string name="btnwon">韩元</string>
+    <string name="btnsave">保存</string>
 </resources>

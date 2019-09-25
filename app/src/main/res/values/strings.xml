@@ -15,4 +15,9 @@
     <string name="btndollar">DOLLAR</string>
     <string name="btneuro">EURO</string>
     <string name="btnwon">WON</string>
+    <string name="btncon" translatable="false">CONFIG</string>
+    <string name="txtdollar" translatable="false">  </string>
+    <string name="txteuro" translatable="false">   </string>
+    <string name="txtwon" translatable="false">   </string>
+    <string name="btnsave">SAVE</string>
 </resources>
