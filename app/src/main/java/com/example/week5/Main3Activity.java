@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,27 +18,35 @@ import android.widget.TextView;
 
 public class Main3Activity extends AppCompatActivity {
 
+    private float dollarRate = 0.0f;
+    private float euroRate =0.0f;
+    private float wonRate =0.0f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        }
+        SharedPreferences sharedPreferences = getSharedPreferences("myrate",Activity.MODE_PRIVATE);
+        dollarRate = sharedPreferences.getFloat("dollar_rate",0.0f);
+        euroRate = sharedPreferences.getFloat("euro_rate",0.0f);
+        wonRate = sharedPreferences.getFloat("won_rate",0.0f);
 
-        float dollar_rate = 0.1445f;
-        float euro_rate = 0.1227f;
-        float won_rate = 168.0538f;
+    }
 
-        public void btndollar(View v) {
-            transfer(dollar_rate);
+
+    public void btndollar(View v) {
+
+            transfer(dollarRate);
         }
 
         public void btneuro(View v){
-            transfer(euro_rate);
+
+            transfer(euroRate);
         }
 
         public void btnwon(View v){
-            transfer(won_rate);
+            transfer(wonRate);
 
         }
 
@@ -55,15 +65,22 @@ public class Main3Activity extends AppCompatActivity {
             Intent config = new Intent(this,Main4Activity.class);
             Bundle bdl=new Bundle();
 
-            bdl.putFloat("dollar_rate",dollar_rate);
-            bdl.putFloat("euro_rate",euro_rate);
-            bdl.putFloat("won_rate",won_rate);
+            bdl.putFloat("dollar_rate",dollarRate);
+            bdl.putFloat("euro_rate",euroRate);
+            bdl.putFloat("won_rate",wonRate);
 
             config.putExtras(bdl);
 
             //config.putExtra("dollar_rate",dollar_rate);
             //config.putExtra("euro_rate",euro_rate);
             //config.putExtra("won_rate",won_rate);
+
+            SharedPreferences sp = getSharedPreferences("myrate", Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putFloat("dollar_rate",dollarRate);
+            editor.putFloat("euro_rate",euroRate);
+            editor.putFloat("won_rate",wonRate);
+            editor.apply();
 
 
             startActivityForResult(config,1);
@@ -72,9 +89,16 @@ public class Main3Activity extends AppCompatActivity {
         protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
               if (requestCode == 1 && resultCode == 2) {
                 Bundle bundle = data.getExtras();
-                dollar_rate = bundle.getFloat("key_dollar", 0.1f);
-                euro_rate = bundle.getFloat("key_euro", 0.1f);
-                won_rate = bundle.getFloat("key_won", 0.1f);
+                dollarRate = bundle.getFloat("key_dollar", 0.1f);
+                euroRate = bundle.getFloat("key_euro", 0.1f);
+                wonRate = bundle.getFloat("key_won", 0.1f);
+
+                  SharedPreferences sharedPreferences = getSharedPreferences("myrate", Activity.MODE_PRIVATE);
+                  SharedPreferences.Editor editor = sharedPreferences.edit();
+                  editor.putFloat("dollar_rate",dollarRate);
+                  editor.putFloat("euro_rate",euroRate);
+                  editor.putFloat("won_rate",wonRate);
+                  editor.apply();
               }
               super.onActivityResult(1, 2, data);
          }
@@ -91,9 +115,9 @@ public class Main3Activity extends AppCompatActivity {
                Intent config = new Intent(this,Main4Activity.class);
                Bundle bdl=new Bundle();
 
-               bdl.putFloat("dollar_rate",dollar_rate);
-               bdl.putFloat("euro_rate",euro_rate);
-               bdl.putFloat("won_rate",won_rate);
+               bdl.putFloat("dollar_rate",dollarRate);
+               bdl.putFloat("euro_rate",euroRate);
+               bdl.putFloat("won_rate",wonRate);
 
                config.putExtras(bdl);
 
