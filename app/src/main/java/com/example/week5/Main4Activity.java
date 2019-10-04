@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -13,7 +14,7 @@ public class Main4Activity extends AppCompatActivity {
 
     EditText input, input2, input3;
     float dollarRate, euroRate, wonRate;
-
+    private final String TAG = "ConfigAcaptivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,10 @@ public class Main4Activity extends AppCompatActivity {
             dollarRate = bdl.getFloat("dollar_rate");
             euroRate = bdl.getFloat("euro_rate");
             wonRate = bdl.getFloat("won_rate");
+
+            Log.i(TAG,"onCreate:dollar2="+dollarRate);
+            Log.i(TAG,"onCreate:euro2="+euroRate);
+            Log.i(TAG,"onCreate:won2="+wonRate);
 
 
             input.setText(String.valueOf(dollarRate));
@@ -54,6 +59,11 @@ public class Main4Activity extends AppCompatActivity {
 
             String str3 = input3.getText().toString();
             wonRate = Float.parseFloat(str3);
+
+            Log.i(TAG,"save:获取到的新的值");
+            Log.i(TAG,"save:newdollar="+dollarRate);
+            Log.i(TAG,"save:newEuro="+euroRate);
+            Log.i(TAG,"save:newwon="+wonRate);
 
             Intent intent = getIntent();
             Bundle bdl = new Bundle();
