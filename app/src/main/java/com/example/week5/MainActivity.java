@@ -16,24 +16,10 @@ public  class MainActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.abc);
-        out=findViewById(R.id.textout);
+        setContentView(R.layout.activity_main);
 
-        EditText input=findViewById(R.id.inp);
-        String str=input.getText().toString();
-
-        Button btn = findViewById(R.id.btn);
 
     }
 
-    public void btn (View v) {
-        EditText input=findViewById(R.id.inp);
-        String str=input.getText().toString();
-        float s = Float.parseFloat(str);
-        float r = s * 1.8f + 32;
 
-        TextView show = findViewById(R.id.txt);
-        show.setText("Result:" + String.format("%.2f",r));
-        //show.setText(R.string.text3 + String.format("%.2f",r));
-    }
 }
