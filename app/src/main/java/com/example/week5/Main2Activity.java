@@ -1,5 +1,6 @@
 package com.example.week5;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -13,6 +14,25 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String  scorea = ((TextView)findViewById(R.id.txt2)).getText().toString();
+        String  scoreb = ((TextView)findViewById(R.id.textView2)).getText().toString();
+        outState.putString("teama_score",scorea);
+        outState.putString("teamb_score",scoreb);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        String scorea = savedInstanceState.getString("teama_score");
+        String scoreb = savedInstanceState.getString("teamb_score");
+
+        ((TextView)findViewById(R.id.txt2)).setText(scorea);
+        ((TextView)findViewById(R.id.textView2)).setText(scoreb);
     }
 
     public void btn1(View v){
