@@ -20,4 +20,5 @@
     <string name="txteuro" translatable="false">   </string>
     <string name="txtwon" translatable="false">   </string>
     <string name="btnsave">SAVE</string>
+    <string name="label_open_list">OpenList</string>
 </resources>
