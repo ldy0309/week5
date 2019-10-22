@@ -34,6 +34,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class Main3Activity extends AppCompatActivity implements Runnable {
 
@@ -217,8 +218,21 @@ public class Main3Activity extends AppCompatActivity implements Runnable {
 
         }else if(item.getItemId()==R.id.open_list){
             //打开列表窗口
-            Intent list = new Intent(this, MyList2Activity.class);
+            Intent list = new Intent(this, RateListActivity.class);
             startActivity(list);
+            //测试数据库
+            /*RateItem item1 = new RateItem("aaaa","123");
+            RateManager manager = new RateManager(this);
+            manager.add(item1);
+            manager.add(new RateItem("bbbb","23.5"));
+            Log.i(TAG, "onOptionsItemSelected:写入数据完毕 ");
+
+            //查询所有数据
+            List<RateItem> testlist = manager.listAll();
+            for(RateItem i: testlist){
+                Log.i(TAG, "onOptionsItemSelected: 取出数据[id="+i.getId()+"]Name="+i.getCurName()+"rate="+i.getCurRate());
+            }*/
+
 
         }
 
